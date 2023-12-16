@@ -3,16 +3,14 @@ import React from 'react';
 import { signUpSchema } from './Schemas';
 
 const Form = () => {
-    const initialValues = {
-        name: '',
-        email: '',
-        password: '',
-        confirm_password: ''
-    };
-
 
     const { values, errors, handleChange, handleSubmit, touched } = useFormik({
-        initialValues: initialValues,
+        initialValues: {
+            name: '',
+            email: '',
+            password: '',
+            confirm_password: ''
+        },
         validationSchema: signUpSchema,
         onSubmit: (values, actions) => {
             console.log(values);
@@ -49,7 +47,7 @@ const Form = () => {
             </label>
             <input
                 className='w-80 border border-black p-2 m-4 rounded-lg'
-                type='email'  // Change the input type to 'email'
+                type='email'
                 placeholder='Email'
                 name='email'
                 autoComplete='off'
